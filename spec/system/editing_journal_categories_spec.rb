@@ -14,7 +14,7 @@ RSpec.describe "EditingJournalCategories", type: :system do
 
     # And then edit
     id = Category.last.id.to_s
-    visit '/categories/'
+    visit '/categories/' + id
     fill_in 'Title', with: 'Chores Edited'
     click_on 'Update Category'
 
@@ -32,7 +32,7 @@ RSpec.describe "EditingJournalCategories", type: :system do
 
     # And then edit
     id = Category.last.id.to_s
-    visit '/categories/'
+    visit '/categories/' + id
     fill_in 'Description', with: 'Listings Edited!'
     click_on 'Update Category'
 
