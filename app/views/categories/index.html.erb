@@ -1,0 +1,6 @@
+<h1>To-Doo</h1>
+
+<%= @category.each do |cat| %>
+  <div><% cat.title %></div>
+  <div><% cat.description %></div>
+<% end %>

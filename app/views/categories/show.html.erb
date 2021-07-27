@@ -1,0 +1,6 @@
+<%= link_to edit_category_path(@category) do %>
+  <%= content_tag :button, "Edit", class: "edit-btn" %>
+<% end %>
+
+<%= @category.title %>
+<%= @category.description %>
