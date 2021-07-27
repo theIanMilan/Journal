@@ -5,8 +5,39 @@ RSpec.describe "EditingJournalCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  it "edits a category's title and displays it"
+  it "edits a category's title and displays category" do
+    # Create first
+    visit '/categories/new'
+    fill_in 'Title', with: 'Chores'
+    fill_in 'Description', with: 'Listing of all household chores'
+    click_on 'Create Category'
 
-  it "edits a category's description and displays it"
-  
+    # And then edit
+    id = Category.last.id.to_s
+    visit '/categories/'
+    fill_in 'Title', with: 'Chores Edited'
+    click_on 'Update Category'
+
+    expect(page).to have_content('Chores Edited')
+    category = Category.find(id)
+    expect(category.title).to eq('Chores Edited')
+  end
+
+  it "edits a category's description and displays category" do
+    # Create first
+    visit '/categories/new'
+    fill_in 'Title', with: 'Chores'
+    fill_in 'Description', with: 'Listing of all household chores'
+    click_on 'Create Category'
+
+    # And then edit
+    id = Category.last.id.to_s
+    visit '/categories/'
+    fill_in 'Description', with: 'Listings Edited!'
+    click_on 'Update Category'
+
+    expect(page).to have_content('Listings Edited!')
+    category = Category.find(id)
+    expect(category.title).to eq('Listings Edited!')
+  end
 end
