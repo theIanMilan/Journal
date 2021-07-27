@@ -6,7 +6,7 @@ RSpec.describe "CreatingJournalCategories", type: :system do
   end
 
   it 'saves and displays a category' do
-    visit '/category/new'
+    visit '/categories/new'
 
     fill_in 'Title', with: 'Chores'
 
