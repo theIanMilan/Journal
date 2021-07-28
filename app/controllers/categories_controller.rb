@@ -1,18 +1,26 @@
 class CategoriesController < ApplicationController
   def index
-    @category = Category.order('created_at DESC')
+    @categories = Category.order('created_at DESC')
   end
   
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def new
     @category = Category.new
   end
 
   def create
     @category = Category.create(category_params)
-  end
-
-  def show
-    @category = Category.find(params[:id])
+    
+    if @category.valid?
+      flash[:notice] = "Category successfully created!"
+      redirect_to categories_path
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new
+    end
   end
 
   def edit
@@ -23,7 +31,7 @@ class CategoriesController < ApplicationController
    @category = Category.find(params[:id])
 
    if @category.update(category_params)
-     flash[:notice] = "category successfully edited!"
+     flash[:notice] = "Category successfully edited!"
      redirect_to categories_path
    else
      flash[:alert] = "Something went wrong..."
