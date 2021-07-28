@@ -1,6 +1,7 @@
-<h1>To-Doo</h1>
+<% @categories.each do |category| %>
+  <div class="category-container">
+    <div class="category-title"> <%= link_to category.title, category %> </div>
 
-<%= @category.each do |cat| %>
-  <div><% cat.title %></div>
-  <div><% cat.description %></div>
+    <div><%= category.description %></div>
+  </div>
 <% end %>
