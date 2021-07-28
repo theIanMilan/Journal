@@ -16,10 +16,8 @@ RSpec.describe "DeletingJournalCategories", type: :system do
     id = Category.last.id.to_s
     visit '/categories/' + id
     click_link 'Delete'
-    accept_alert
 
     expect(page).not_to have_content('Chores')
-    category = Category.find(id)
-    expect(category.description).not_to eq('Listing of all household chores')
+    expect {Category.find(id)}.to raise_error
   end
 end
