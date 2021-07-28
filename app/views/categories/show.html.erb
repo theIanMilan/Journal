@@ -1,6 +1,9 @@
 <%= link_to edit_category_path(@category) do %>
   <%= content_tag :button, "Edit", class: "edit-btn" %>
 <% end %>
+<%= link_to category_path, method: :delete, data: {confirm: "Are you sure?"} do %>
+  <%= content_tag :button, "Delete", class: "delete-btn" %>
+<% end %>
 
 <div><%= @category.title %></div>
 <br>
