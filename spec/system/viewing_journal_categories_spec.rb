@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ViewingJournalCategories", type: :system do
+RSpec.describe 'ViewingJournalCategories', type: :system do
   before do
     driven_by(:rack_test)
   end
@@ -14,7 +14,7 @@ RSpec.describe "ViewingJournalCategories", type: :system do
 
     # View
     id = Category.last.id.to_s
-    visit '/categories/' + id
+    visit "/categories/#{id}"
     expect(page).to have_content('Listing of all household chores')
     category = Category.find(id)
     expect(category.description).to eq('Listing of all household chores')
