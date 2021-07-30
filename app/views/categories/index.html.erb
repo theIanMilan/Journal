@@ -1,7 +1,18 @@
-<% @categories.each do |category| %>
-  <div class="category-container">
-    <div class="category-title"> <%= link_to category.title, category %> </div>
-
-    <div><%= category.description %></div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 align-items-stretch g-4 py-5">
+    <%# BUILD CARDS %>
+    <% @categories.each do |category| %>
+    <div class="col">
+      <div class="card border border-success shadow-0 mb-3">
+        <div class="card-header bg-transparent border-success"><h3 class="card-title"> <%= link_to category.title, category %> </h3></div>
+        <div class="card-body text-success">
+          <p class="card-text">
+            <%= category.description %>
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-success">EDIT | DELETE</div>
+      </div>
+    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
