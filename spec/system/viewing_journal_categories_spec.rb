@@ -1,22 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe 'ViewingJournalCategories', type: :system do
+RSpec.describe 'Edit-Delete-Show-JournalCategories', type: :system do
   before do
     driven_by(:rack_test)
   end
 
-  it "View a category to show the category's details" do
-    # Create first
-    visit '/categories/new'
-    fill_in 'Title', with: 'Chores'
-    fill_in 'Description', with: 'Listing of all household chores'
-    click_on 'Create Category'
+  before :all do
+    Category.destroy_all # clean database
+    @category = Category.create(title: 'Chores', description: 'Household activities to do')
+  end
 
-    # View
-    id = Category.last.id.to_s
-    visit "/categories/#{id}"
-    expect(page).to have_content('Listing of all household chores')
-    category = Category.find(id)
-    expect(category.description).to eq('Listing of all household chores')
+  it 'View all categories includes newly created data at index.html.erb' do
+    visit '/categories'
+    expect(page).to have_content('Household activities to do')
+    expect(@category.description).to eq('Household activities to do')
+  end
+
+  it 'View a specific category and test its show.html.erb page' do
+    visit "/categories/#{@category.id}"
+    expect(page).to have_content('Household activities to do')
+    expect(@category.description).to eq('Household activities to do')
+  end
+
+  it 'Edits a categorys title and displays category' do
+    visit "/categories/#{@category.id}"
+    click_link 'Edit'
+
+    fill_in 'Title', with: 'Chores Edited'
+    click_on 'Update Category'
+
+    expect(page).to have_content('Chores Edited')
+    expect(Category.last.title).to eq('Chores Edited')
+  end
+
+  it 'Edits a categorys description and displays category' do
+    visit category_path(@category)
+    click_link 'Edit'
+
+    fill_in 'Description', with: 'Listings Edited!'
+    click_on 'Update Category'
+
+    expect(page).to have_content('Listings Edited!')
+    expect(Category.last.description).to eq('Listings Edited!')
+  end
+
+  it 'Category can be deleted' do
+    @category.destroy
+    expect(Category.find_by(title: 'Chores')).to be_nil
   end
 end
