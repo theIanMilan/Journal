@@ -1,11 +1,9 @@
 ## Live Demo
-View the live app [at heroku.](https://ians-avion-journal.herokuapp.com/)
+View the live app [at heroku.](https://our-journal.herokuapp.com/)
 
 ## Introduction
 
-<!-- This project, my first Rails application, is a personal blog that allows an admin to post content (Articles) and let other users comment on the articles. The goal in building this app was to learn about MVC concepts and CRUD operations.
-
-This project was built following [Rails Guide](https://guides.rubyonrails.org/getting_started.html). -->
+Our Journal is a project made by [Ian Mandap](https://github.com/theIanMilan) and [Janson Siy](https://github.com/JansonSiy)
 
 ## Screenshots
 
