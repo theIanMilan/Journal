@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.integer :category_id
-      t.datetime :deadline, default: -> { 'CURRENT_TIMESTAMP' }
+      t.datetime :deadline, default: -> { 'NOW()' }
       t.boolean :completed, default: false
       t.timestamps
     end

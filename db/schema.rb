@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_121143) do
     t.string "title"
     t.text "description"
     t.integer "category_id"
-    t.datetime "deadline", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "deadline", default: -> { "now()" }
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
