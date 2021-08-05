@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
-
+  
   def index
-    @categories = Category.order('created_at DESC')
+    @user = current_user
+    @categories = @user.categories.order('created_at DESC')
   end
   
   def show; end
@@ -12,7 +13,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
+    @user = current_user
+    @category = @user.categories.build(category_params)
+    @category.save!
     
     if @category.valid?
       flash[:notice] = "Category successfully created!"
