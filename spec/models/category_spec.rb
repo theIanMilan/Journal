@@ -1,22 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject do
-    described_class.new(title: 'Chores',
-                        description: 'lorem ipsum')
+  before :all do
+    @user = User.create(email: 'user@email.com', password: 'password', id: 1)
+    @category = @user.categories.build(title: 'Chores',
+                                       description: 'lorem ipsum',
+                                       user_id: @user.id)
   end
 
   it 'is valid with valid attributes' do
-    expect(subject).to be_valid
+    expect(@category).to be_valid
   end
 
   it 'is not valid without a title' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+    @category.title = nil
+    expect(@category).to_not be_valid
   end
 
   it 'is not valid without a description' do
-    subject.description = nil
-    expect(subject).to_not be_valid
+    @category.description = nil
+    expect(@category).to_not be_valid
   end
 end
