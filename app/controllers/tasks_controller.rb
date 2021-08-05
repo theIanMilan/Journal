@@ -24,10 +24,10 @@ class TasksController < ApplicationController
         # @task = @category.tasks.create(params[:task_params])
         
         if @task.save
-            flash.alert = "Success: Task created!"
+            flash.alert = "Success: Task added!"
             redirect_to category_path(@category)
         else
-            flash.alert = "Failed: Error in creating task!"
+            flash.alert = "Failed: Error in adding task!"
         end
     end
 
