@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  # a category has many tasks
   has_many :tasks
 
   validates_presence_of :title

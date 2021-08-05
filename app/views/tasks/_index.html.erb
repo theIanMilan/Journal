@@ -1,0 +1,13 @@
+<h1>Tasks Index</h1>
+
+<% @tasks.each do |t| %>
+    <%= t.title %>
+
+    <%= t.description %>
+
+    <%= link_to 'Edit Task', edit_category_task_path(@category) %>
+
+    <%= link_to 'Delete Task' %>
+
+    <br>
+<% end %>

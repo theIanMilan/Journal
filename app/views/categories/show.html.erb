@@ -1,3 +1,9 @@
+<h1>Category Title</h1>
+<div><%= @category.title %></div>
+<br>
+<h1>Category Description</h1>
+<div><%= @category.description %></div>
+
 <%= link_to edit_category_path(@category) do %>
   <%= content_tag :button, "Edit", class: "edit-btn" %>
 <% end %>
@@ -5,6 +11,15 @@
   <%= content_tag :button, "Delete", class: "delete-btn" %>
 <% end %>
 
-<div><%= @category.title %></div>
-<br>
-<div><%= @category.description %></div>
+<%= render "tasks/index" %>
+
+<%= link_to 'Create Task', new_category_task_path(@category) %>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<%#= @category.tasks.count %>
+<%# <%= render @category.tasks %>
