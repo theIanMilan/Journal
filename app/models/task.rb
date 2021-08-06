@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-  belongs_to :category
+  # a task belongs to a category
+  belongs_to :category, dependent: :destroy
 end

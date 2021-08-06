@@ -1,11 +1,14 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  # check private to understand
 
   def index
     @categories = Category.order('created_at DESC')
   end
   
-  def show; end
+  def show
+    @tasks = @category.tasks
+  end
 
   def new
     @category = Category.new
