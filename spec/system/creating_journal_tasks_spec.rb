@@ -6,21 +6,34 @@ RSpec.describe "CreatingJournalTasks", type: :system do
     end
 
     it 'saves and displays a task' do
-        visit '/tasks'
-
-        fill_in 'Title', with: 'Tasks'
+        # visit a category url with a specific id
+        # visit "/categories/#{@category.id}"
+        visit category_path(@category.id)
         
-        fill_in 'Description', with: 'Listing of my to do'
+        # click add task link
+        click_link 'Add Task'
 
-        #deadline #bagong form
+        # # visit new task form
+        visit new_category_task_path(@category.id)
+        # rspec asked to include - missing required keys: [:category_id]
 
+        # fill up form 
+        fill_in 'Title', with: 'titletask'
+        fill_in 'Description', with: 'descriptiontask'
+
+        # click create task button
         click_on 'Create Task'
 
-        expect(page).to have_content('Tasks')
-        expect(page).to have_content('Listing of my to do')
+        # visit back to category url with a specific id
+        visit category_path(@category.id)
 
-        task = Task.order("id").last
-        expect(task.title).to eq('Tasks')
-        expect(task.description).to eq('Listing of my to do')
+        # expect page to have the value of both title and description
+        expect(page).to have_content("titletask")
+        expect(page).to have_content("descriptiontask")
+        
+        # check activerecord
+        task = @category.tasks.order("id").last
+        expect(task.title).to eq('titletask')
+        expect(task.description).to eq('descriptiontask')
     end
 end
