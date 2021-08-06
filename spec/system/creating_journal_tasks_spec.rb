@@ -10,30 +10,34 @@ RSpec.describe "CreatingJournalTasks", type: :system do
     end
 
     it 'saves and displays a task' do
-        # visit a category url with a specific index
-        visit "/categories/#{@category.id}"
-       
-        expect do
-            within 'form' do
-                 # fill up form 
-                fill_in 'Title', with: 'Tasks'
-                fill_in 'Description', with: 'To do'
-                # click 'Create Task'
-                click_link 'Create Task'
-                # expect page to be in the same url
-                expect(page).to have_current_path
-            end
-        end
+        # visit a category url with a specific id
+        # visit "/categories/#{@category.id}"
+        visit category_path(@category.id)
+        
+        # click add task link
+        click_link 'Add Task'
 
-        # 'Tasks' & 'To do' content should be displayed
-        expect(page).to have_content('Tasks')
-        expect(page).to have_content('To do')
+        # # visit new task form
+        visit new_category_task_path(@category.id)
+        # rspec asked to include - missing required keys: [:category_id]
+
+        # fill up form 
+        fill_in 'Title', with: 'titletask'
+        fill_in 'Description', with: 'descriptiontask'
+
+        # click create task button
+        click_on 'Create Task'
+
+        # visit back to category url with a specific id
+        visit category_path(@category.id)
+
+        # expect page to have the value of both title and description
+        expect(page).to have_content("titletask")
+        expect(page).to have_content("descriptiontask")
+        
+        # check activerecord
+        task = @category.tasks.order("id").last
+        expect(task.title).to eq('titletask')
+        expect(task.description).to eq('descriptiontask')
     end
 end
-
-# task = Category.last.tasks.last
-# visit "/categories/#{@category.id}/tasks/#{task.id}"
-
-# task = Category.tasks.order("id").last
-# expect(task.title).to eq('Tasks')
-# expect(task.description).to eq('To do')
