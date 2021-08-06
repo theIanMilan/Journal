@@ -7,7 +7,9 @@ class CategoriesController < ApplicationController
     @categories = @user.categories.order('created_at DESC')
   end
   
-  def show; end
+  def show
+    @tasks = @category.tasks
+  end
 
   def new
     @category = Category.new
@@ -29,7 +31,7 @@ class CategoriesController < ApplicationController
 
   def edit; end
 
- def update
+  def update
    if @category.update(category_params)
      flash[:notice] = "Category successfully edited!"
      redirect_to categories_path
@@ -37,7 +39,7 @@ class CategoriesController < ApplicationController
      flash[:alert] = "Something went wrong..."
      render :new
    end
- end
+  end
 
   def destroy
     @category.destroy
