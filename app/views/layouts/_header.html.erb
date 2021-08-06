@@ -4,12 +4,18 @@
     <div>ICON</div>
     
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-       <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+       <%= link_to 'Home', home_path,  class: "nav-link px-2 link-secondary" %>
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Login</button>
-      <button type="button" class="btn btn-primary">Sign-up</button>
+      <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "<button class='btn btn-outline-primary me-2'>Login</button>".html_safe, new_user_session_path %></button>
+        <%= link_to "<button class='btn btn-primary'>Sign-up</button>".html_safe, new_user_registration_path %></button>
+      <% end %>
     </div>
   </header>
 </div>
