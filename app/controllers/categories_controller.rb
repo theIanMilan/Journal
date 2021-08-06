@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
-  # check private to understand
 
   def index
     @categories = Category.order('created_at DESC')
@@ -16,7 +15,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    
+
     if @category.valid?
       flash[:notice] = "Category successfully created!"
       redirect_to categories_path

@@ -5,17 +5,18 @@ RSpec.describe "CreatingJournalTasks", type: :system do
         driven_by(:rack_test)
     end
 
+    before :all do
+        @category = Category.create(title: 'Category title', description: 'Category description')
+    end
+
     it 'saves and displays a task' do
-        # visit a category url with a specific id
-        # visit "/categories/#{@category.id}"
         visit category_path(@category.id)
-        
+
         # click add task link
         click_link 'Add Task'
 
         # # visit new task form
         visit new_category_task_path(@category.id)
-        # rspec asked to include - missing required keys: [:category_id]
 
         # fill up form 
         fill_in 'Title', with: 'titletask'
