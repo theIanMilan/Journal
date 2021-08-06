@@ -13,13 +13,12 @@
 
 <%= render "tasks/index" %>
 
-<%= link_to 'Create Task', new_category_task_path(@category) %>
+<h1>Pending Tasks<%= @category.tasks.count %></h1>
+
+<%= link_to 'Add Task', new_category_task_path(@category) %>
 
 <% flash.each do |type, msg| %>
   <div>
     <%= msg %>
   </div>
 <% end %>
-
-<%#= @category.tasks.count %>
-<%# <%= render @category.tasks %>
