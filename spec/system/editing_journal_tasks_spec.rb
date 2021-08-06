@@ -2,7 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "EditingJournalTasks", type: :system do
     before :all do
-        @task = Task.create(title: 'Task title', description: 'My to do content')
+        # Devise gem rspec helper
+        @user = User.create(:email => 'test1234@example.com', :password => 'f4k3p455w0rd')
+    
+        # Clean database and create a Category
+        Category.destroy_all
+        @category = @user.categories.create(title: 'Category title', description: 'Category description')
+        @task = @category.tasks.create(title: 'Task title', description: 'My to do content')
+    end
+
+    before :each do 
+        login_as(@user, :scope => :user)
     end
 
     it 'can edit new posts' do

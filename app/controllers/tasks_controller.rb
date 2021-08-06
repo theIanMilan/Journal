@@ -3,17 +3,19 @@ class TasksController < ApplicationController
     end 
 
     def new
-        @category = Category.find(params[:category_id])
+        @user = current_user
+        @category = @user.categories.find(params[:category_id])
 
         @task = @category.tasks.build
     end
     
     def create
-        @category = Category.find(params[:category_id])
+        @user = current_user
+        @category = @user.categories.find(params[:category_id])
         @task = @category.tasks.build(task_params)
         
         if @task.save
-            flash.alert = "Success: Task added!"
+            flash.notice = "Success: Task added!"
             redirect_to category_path(@category)
         else
             flash.alert = "Failed: Error in adding task!"

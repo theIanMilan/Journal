@@ -6,7 +6,16 @@ RSpec.describe "CreatingJournalTasks", type: :system do
     end
 
     before :all do
-        @category = Category.create(title: 'Category title', description: 'Category description')
+        # Devise gem rspec helper
+        @user = User.create(:email => 'test1234@example.com', :password => 'f4k3p455w0rd')
+    
+        # Clean database and create a Category
+        Category.destroy_all
+        @category = @user.categories.create(title: 'Category title', description: 'Category description')
+    end
+
+    before :each do 
+        login_as(@user, :scope => :user)
     end
 
     it 'saves and displays a task' do

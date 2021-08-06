@@ -7,7 +7,7 @@ RSpec.describe 'Edit-Delete-Show-JournalCategories', type: :system do
 
   before :all do
     # Devise gem rspec helper
-    @user = User.create(:email => 'test1234@example.com', :password => 'f4k3p455w0rd')
+    @user = User.create(:email => 'test99@example.com', :password => 'f4k3p455w0rd')
 
     # Clean database and create a Category
     Category.destroy_all
