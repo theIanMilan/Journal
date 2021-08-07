@@ -3,14 +3,12 @@ class TasksController < ApplicationController
     end 
 
     def new
-        @user = current_user
-        @category = @user.categories.find(params[:category_id])
+        @category = current_user.categories.find(params[:category_id])
         @task = @category.tasks.build
     end
     
     def create
-        @user = current_user
-        @category = @user.categories.find(params[:category_id])
+        @category = current_user.categories.find(params[:category_id])
         @task = @category.tasks.build(task_params)
         
         if @task.save
@@ -27,8 +25,7 @@ class TasksController < ApplicationController
     end
 
     def update
-        @user = current_user
-        @category = @user.categories.find(params[:category_id])
+        @category = current_user.categories.find(params[:category_id])
         @task = @category.tasks.find(params[:id])
 
         if @task.update(task_params)
