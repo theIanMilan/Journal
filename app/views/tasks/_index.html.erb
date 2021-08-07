@@ -7,7 +7,9 @@
 
     <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>
 
-    <%= link_to 'Delete Task' %>
+    <%= link_to 'Delete Task', category_task_path(@category, task),
+        method: :delete,
+        data: { confirm: "Are you sure? "} %>
 
     <br>
 <% end %>

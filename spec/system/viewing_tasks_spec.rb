@@ -54,7 +54,7 @@ RSpec.describe 'ViewingTasks', type: :system do
 
   it 'tasks can be deleted' do
     @task.destroy
-    expect(Task.find_by(title: 'Clean')).to be_nil
+    expect(@category.tasks.find_by(title: 'Clean')).to be_nil
   end
 
   # Clean database
