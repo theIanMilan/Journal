@@ -1,17 +1,17 @@
 <h2>EDIT TASK</h2>
 
-<%= form_with model: [ @category, @task ] do |uf| %>
+<%= form_with model: [ @category, @task ] do |form| %>
   <div>
-    <%= uf.label :title %>
-    <%= uf.text_field :title %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= uf.label :description %>
-    <%= uf.text_field :description %>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= uf.submit 'Submit Edit' %>
+    <%= form.submit 'Submit Edit' %>
   </div>
 <% end %>
