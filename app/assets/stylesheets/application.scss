@@ -12,6 +12,138 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
 
- $card-height: 100%;
+$card-height: 100%;
+
+// general designs
+* {
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.smallFont {
+  font-size: 1.2rem;
+}
+.medFont {
+  font-size: 1.6rem;
+}
+.bigFont {
+  font-size: 2rem;
+}
+
+// variables
+:root {
+  --color-palette-imperialRed: #E63946;
+  --color-palette-honeydew: #F1FAEE;
+  --color-palette-powderBlue: #A8DADC;
+  --color-palette-celadonBlue: #457B9D;
+  --color-palette-prussianBlue: #1D3557;
+}
+
+// footer
+footer, .footerTop, .footerMidOne, .footerMidTwo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+footer, .footerMidTwo {
+  flex-direction: column;
+}
+.footerMidOne, .footerMidTwo, .footerBot {
+  margin-bottom: 10px;
+}
+
+footer {
+  height: 250px;
+  width: 100%;
+  // position: fixed;
+  // bottom: 0;
+  background-color: var(--color-palette-prussianBlue);
+  color: var(--color-palette-honeydew);
+}
+.footerTop {
+  width: 700px;
+  margin: 15px 0px 10px 0px;
+  font-weight: bold;
+  // text-transform: uppercase;
+}
+.footerTopEach:hover {
+  color: var(--color-palette-celadonBlue);
+}
+.footerMidOne {
+  width: 300px;
+}
+.footerMidTwo {
+  width: 400px;
+}
+.footerBot {
+  width: 1300px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-palette-honeydew);
+  font-style: italic;
+}
+.email {
+  font-weight: bold;
+}
+a:link, a:visited {
+  color: var(--color-palette-honeydew);
+}
+
+// header
+header, .links, .buttons {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  justify-content: flex-end;
+  height: 50px;
+  background-color: var(--color-palette-imperialRed);
+}
+.links {
+  justify-content: space-evenly;
+  width: 350px;
+}
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  color: #FF758F;
+}
+.buttons {
+  justify-content: space-between;
+  width: 140px;
+  margin: 0px 50px 0px 100px;
+}
+.button {
+  border: 1.5px solid var(--color-palette-honeydew);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-palette-honeydew);
+  letter-spacing: 0.05em;
+}
+.button:hover {
+  background: var(--color-palette-honeydew);
+  color: var(--color-palette-imperialRed);
+  border-color: var(--color-palette-honeydew);
+}
+
+// body
+.body, .logo, .about {
+  display: flex;
+  justify-content: center;
+}
+.body, .logo {
+  align-items: center;
+}
+.logo, .about {
+  height: 80%;
+  width: 40%;
+}
+
+.body {
+  height: 500px;
+}
+.about {
+  flex-direction: column;
+  align-items: flex-start;
+}
