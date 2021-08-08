@@ -1,27 +1,3 @@
 <h2>New Task Form</h2>
 
-<%= form_with model: [ @category, @task ] do |tf| %>
-  <div>
-    <%= tf.label :title %>
-    <%= tf.text_field :title %>
-  </div>
-
-  <div>
-    <%= tf.label :description %>
-    <%= tf.text_field :description %>
-  </div>
-
-  <div>
-    <%= tf.label :deadline %>
-    <%= tf.datetime_select :deadline %>
-  </div>
-
-  <div>
-    <%= tf.label :completed %>
-    <%= tf.check_box :completed %>
-  </div>
-
-  <div>
-    <%= tf.submit 'Create Task' %>
-  </div>
-<% end %>
+<%= render "form", category: @category, task: @task %>

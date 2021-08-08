@@ -1,17 +1,3 @@
 <h2>EDIT TASK</h2>
 
-<%= form_with model: [ @category, @task ] do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.submit 'Submit Edit' %>
-  </div>
-<% end %>
+<%= render "form", category: @category, task: @task %>

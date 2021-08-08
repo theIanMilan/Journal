@@ -1,0 +1,37 @@
+<%= form_with model: [ @category, @task ] do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :deadline %>
+    <%= form.text_field :deadline_date, class: 'datepicker', size: 10,
+                        maxlength: 10 %>
+    <%= form.text_field :deadline_time, size: 5,
+                    maxlength: 5 %>
+  </div>
+
+  <div>
+    <%= form.label :completed %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div>
+    <%= form.submit 'Create Task' %>
+  </div>
+<% end %>
+
+<!-- datetime script-->
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker({
+                    format: 'L'
+                });
+            });
+</script>
