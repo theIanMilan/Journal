@@ -1,0 +1,23 @@
+<%# Renders only if there are tasks due today %>
+<% if @tasks_today.count != 0 %>
+    <h1> Tasks Due Today </h1>
+    <% @tasks_today.each do |task| %>
+        <%= task.title %>
+
+        <%= task.description %>
+
+        <%= task.completed %>
+
+        <%= task.deadline.strftime('%B %d, %Y %H:%M %p') %>
+
+        <%= link_to 'See More', category_task_path(@category, task) %>
+
+        <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>
+
+        <%= link_to 'Delete Task', category_task_path(@category, task),
+            method: :delete,
+            data: { confirm: "Are you sure? "} %>
+
+        <br>
+    <% end %>
+<% end %>

@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
   
   def show
     @tasks = @category.tasks
+
+    @tasks_today = @tasks.where(deadline: Date.today.all_day)
+    @tasks_others = @tasks.where.not(deadline: Date.today.all_day)
   end
 
   def new
