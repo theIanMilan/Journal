@@ -5,6 +5,10 @@
 
     <%= task.description %>
 
+    <%= task.completed %>
+
+    <%= task.deadline %>
+
     <%= link_to 'See More', category_task_path(@category, task) %>
 
     <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>

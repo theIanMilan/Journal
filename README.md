@@ -27,6 +27,7 @@ Our Journal is a project made by [Ian Mandap](https://github.com/theIanMilan) an
 * CSS and SCSS
 * Bootstrap5
 * PostgresQL
+* [flatpickr](https://github.com/flatpickr/flatpickr) for datetime picker
 <!-- * [Trix](https://github.com/basecamp/trix)
 * `toastr` for notifications
 * `image-processing` gem -->
