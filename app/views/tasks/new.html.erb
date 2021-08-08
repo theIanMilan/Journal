@@ -12,6 +12,16 @@
   </div>
 
   <div>
+    <%= tf.label :deadline %>
+    <%= tf.datetime_select :deadline %>
+  </div>
+
+  <div>
+    <%= tf.label :completed %>
+    <%= tf.check_box :completed %>
+  </div>
+
+  <div>
     <%= tf.submit 'Create Task' %>
   </div>
 <% end %>
