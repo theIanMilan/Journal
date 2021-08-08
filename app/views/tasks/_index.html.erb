@@ -7,7 +7,7 @@
 
     <%= task.completed %>
 
-    <%= task.deadline %>
+    <%= task.deadline.strftime('%B %d, %Y %H:%M %p') %>
 
     <%= link_to 'See More', category_task_path(@category, task) %>
 

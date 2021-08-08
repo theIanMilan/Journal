@@ -18,15 +18,12 @@
   <!-- flatpickr -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    const date_time = document.querySelector('.datepicker');
-    const fp = flatpickr(date_time, {
+    var date_time = document.querySelector('.datepicker');
+    var fp = flatpickr(date_time, {
       altInput: true,
       altFormat: "F j, Y H:i",
       enableTime: true,
       dateFormat: "Y-m-d H:i",})
-
-    // Removes erroneous class tag added by script
-    document.querySelector('.form-control').classList.remove('form-control')
   </script>
 
   <div>
