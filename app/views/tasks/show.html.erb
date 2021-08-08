@@ -1,0 +1,13 @@
+<h1>Task Title</h1>
+<div><%= @category.title %></div>
+<br>
+<h1>Task Description</h1>
+<div><%= @task.description %></div>
+
+<%= link_to edit_category_task_path(@category, @task) do %>
+  <%= content_tag :button, "Edit", class: "edit-btn" %>
+<% end %>
+
+<%= link_to category_task_path(@category, @task), method: :delete, data: {confirm: "Are you sure?"} do %>
+  <%= content_tag :button, "Delete", class: "delete-btn" %>
+<% end %>

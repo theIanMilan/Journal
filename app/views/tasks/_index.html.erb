@@ -5,6 +5,8 @@
 
     <%= task.description %>
 
+    <%= link_to 'See More', category_task_path(@category, task) %>
+
     <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>
 
     <%= link_to 'Delete Task', category_task_path(@category, task),
