@@ -1,18 +1,24 @@
 <header>
   <div class="links">
-    <div><%= link_to 'Home', home_path,  class: "link" %></div>
+    <div><%= link_to 'Home', home_path, class: "link" %></div>
     <div><a class="link" href="#">Services</a></div>
     <div><a class="link" href="#">About</a></div>
     <div><a class="link" href="#">Membership</a></div>
   </div>
-  <div class="buttons">
+  <div>
     <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <div class="signedInCon">
+        <div>Logged in as <strong><%= current_user.email %></strong></div>
+        <div>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: "link" %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link" %>
+        </div>
+      </div>
     <% else %>
-      <%= link_to "<button class='button'>Login</button>".html_safe, new_user_session_path %></button>
-      <%= link_to "<button class='button'>Sign-up</button>".html_safe, new_user_registration_path %></button>
+      <div class="loginCon">
+        <%= link_to "<button class='button'>Login</button>".html_safe, new_user_session_path %></button>
+        <%= link_to "<button class='button'>Sign-up</button>".html_safe, new_user_registration_path %></button>
+      </div>
     <% end %>
   </div>
 </header>
