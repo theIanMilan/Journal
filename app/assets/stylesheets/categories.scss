@@ -11,6 +11,7 @@
   --color-palette-prussianBlue: #1D3557;
 }
 
+// categories show
 .myCol, .myCard, .cardHead, .cardBody, .cardFooter {
   display: flex;
   align-items: center;
@@ -21,7 +22,7 @@
 .myCard, .cardHead, .cardBody, .cardFooter {
   width: 100%;
 }
-.cardFooter, a:link, a:hover {
+.cardFooter, .cardHeadClr {
   color: var(--color-palette-honeydew);
 }
 
@@ -53,4 +54,58 @@
 }
 a:link, a:hover {
   text-decoration: none;
+}
+.cardHeadClr:hover {
+  color: var(--color-palette-imperialRed);
+}
+
+// category show
+.catBody, .catHead, .catActions, .catMid {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.catDes, .taskCount {
+  color: var(--color-palette-celadonBlue);
+}
+.catTitle, .catBtn:hover {
+  color: var(--color-palette-prussianBlue);
+}
+
+.catBody {
+  justify-content: flex-start;
+  width: 100vw;
+}
+.catHead {
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+.catTitle {
+  width: 650px;
+  border-bottom: 1.5px solid var(--color-palette-prussianBlue);
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.catActions {
+  justify-content: space-between;
+  width: 38%;
+  font-size: 0.8rem;
+}
+.taskCount {
+  font-style: italic;
+}
+.catBtn {
+  border: 1.4px solid var(--color-palette-prussianBlue);
+  border-radius: 5px;
+  background-color: var(--color-palette-prussianBlue);
+  color: var(--color-palette-honeydew);
+  font-weight: bold;
+}
+.catBtn:hover {
+  border-color: var(--color-palette-prussianBlue);
+}
+.catMid {
+  justify-content: center;
+  margin-bottom: 20px;
 }

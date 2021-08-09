@@ -1,24 +1,21 @@
-<h1>Category Title</h1>
-<div><%= @category.title %></div>
-<br>
-<h1>Category Description</h1>
-<div><%= @category.description %></div>
-
-<%= link_to edit_category_path(@category) do %>
-  <%= content_tag :button, "Edit", class: "edit-btn" %>
-<% end %>
-<%= link_to category_path, method: :delete, data: {confirm: "Are you sure?"} do %>
-  <%= content_tag :button, "Delete", class: "delete-btn" %>
-<% end %>
-
-<%= render "tasks/index" %>
-
-<h1>Pending Tasks<%= @category.tasks.count %></h1>
-
-<%= link_to 'Add Task', new_category_task_path(@category) %>
-
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
+<div class="catBody">
+  <div class="catHead">
+    <h1 class="catTitle"><%= @category.title %></h1>
+    <div class="catDes"><%= @category.description %></div>
+    <div class="catActions">
+      <div class="taskCount">(Pending Tasks: <%= @category.tasks.count %>)</div>
+      <div>
+        <%= link_to edit_category_path(@category) do %>
+          <%= content_tag :button, "Edit &#9998;".html_safe, class: "catBtn" %>
+        <% end %>
+        <%= link_to category_path, method: :delete, data: {confirm: "Are you sure?"} do %>
+          <%= content_tag :button, "Delete &#10008".html_safe, class: "catBtn" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="catMid">
+    <div><%= render "tasks/index" %></div>
+    <%= link_to 'Add Task +', new_category_task_path(@category), class: "addTask" %>
+  </div>
+</div>

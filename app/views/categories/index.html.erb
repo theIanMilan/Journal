@@ -3,7 +3,7 @@
     <% @categories.each do |category| %>
       <div class="myCol">
         <div class="myCard">
-          <div class="cardHead"><%= link_to category.title, category %></div>
+          <div class="cardHead"><%= link_to category.title, category , class: "cardHeadClr" %></div>
           <div class="cardBody"><%= category.description %></div>
           <div class="cardFooter">&#9776; | &#9998; | &#10008;</div>
         </div>
