@@ -22,7 +22,7 @@ RSpec.describe 'CreatingTasks', type: :system do
     visit category_path(@category.id)
 
     # click add task link
-    click_link 'Add Task'
+    click_link 'Add Task +'
 
     # # visit new task form
     visit new_category_task_path(@category.id)
@@ -30,20 +30,21 @@ RSpec.describe 'CreatingTasks', type: :system do
     # fill up form
     fill_in 'Title', with: 'titletask'
     fill_in 'Description', with: 'descriptiontask'
+    find('.datepicker').set('August 11, 2021 12:00')
+    page.check('task_completed')
 
     # click create task button
-    click_on 'Create Task'
-
-    # visit back to category url with a specific id
-    visit category_path(@category.id)
+    click_on 'Submit'
 
     # expect page to have the value of both title and description
     expect(page).to have_content('titletask')
-    expect(page).to have_content('descriptiontask')
+    expect(page).to have_content('Accomplished')
+    expect(page).to have_content('August 11, 2021 12:00 PM')
 
     # check activerecord
     task = @category.tasks.order('id').last
     expect(task.title).to eq('titletask')
-    expect(task.description).to eq('descriptiontask')
+    expect(task.deadline.strftime('%B %d, %Y %H:%M %p')).to eq('August 11, 2021 12:00 PM')
+    expect(task.completed).to eq(true)
   end
 end
