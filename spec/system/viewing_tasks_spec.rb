@@ -46,17 +46,20 @@ RSpec.describe 'ViewingTasks', type: :system do
 
     fill_in 'Title', with: 'edittitletask'
     fill_in 'Description', with: 'editdescriptiontask'
+    find('.datepicker').set('August 19, 2021 12:00')
+    page.check('task_completed')
 
     click_on 'Submit'
 
-    visit category_path(@category.id)
-
     expect(page).to have_content('edittitletask')
-    expect(page).to have_content('editdescriptiontask')
+    expect(page).to have_content('August 19, 2021')
+    expect(page).to have_content('Accomplished')
 
     task = @category.tasks.order('id').last
     expect(task.title).to eq('edittitletask')
     expect(task.description).to eq('editdescriptiontask')
+    expect(task.deadline.strftime('%B %d, %Y %H:%M %p')).to eq('August 19, 2021 12:00 PM')
+    expect(task.completed).to eq(true)
   end
 
   it 'tasks can be deleted' do
