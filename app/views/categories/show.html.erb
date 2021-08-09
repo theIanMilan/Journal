@@ -13,9 +13,19 @@
         <% end %>
       </div>
     </div>
+
   </div>
   <div class="catMid">
-    <div><%= render "tasks/index" %></div>
+    <div><%= render "tasks/today" %></div>
+    <div><%= render "tasks/others" %></div>
     <%= link_to 'Add Task +', new_category_task_path(@category), class: "addTask" %>
   </div>
+</div>
+
+
+
+<h1>Progress:</h1>
+<p><%= @completed_tasks %> of <%= @total_tasks %> tasks accomplished</p>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= @percent_complete %>%;" aria-valuenow="<%= @percent_complete %>" aria-valuemin="0" aria-valuemax="100"><%= @percent_complete %>%</div>
 </div>

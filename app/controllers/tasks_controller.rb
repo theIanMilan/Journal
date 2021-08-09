@@ -1,13 +1,17 @@
 class TasksController < ApplicationController
+  before_action :set_category, only: %i[show new create edit update destroy]
+
   def index; end
 
+  def show
+    @task = @category.tasks.find(params[:id])
+  end
+
   def new
-    @category = current_user.categories.find(params[:category_id])
     @task = @category.tasks.build
   end
 
   def create
-    @category = current_user.categories.find(params[:category_id])
     @task = @category.tasks.build(task_params)
 
     if @task.save
@@ -19,12 +23,10 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @category = current_user.categories.find(params[:category_id])
     @task = @category.tasks.find(params[:id])
   end
 
   def update
-    @category = current_user.categories.find(params[:category_id])
     @task = @category.tasks.find(params[:id])
 
     if @task.update(task_params)
@@ -35,9 +37,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = @category.tasks.find(params[:id])
+    @task.destroy
+
+    flash[:notice] = 'Task successfully deleted!'
+    redirect_to category_path(@category)
+  end
+
   private
 
+  def set_category
+    @category = current_user.categories.find(params[:category_id])
+  end
+
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :completed, :deadline)
   end
 end

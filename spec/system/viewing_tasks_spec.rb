@@ -12,27 +12,35 @@ RSpec.describe 'ViewingTasks', type: :system do
     # Clean database and create a Category
     Category.destroy_all
     @category = @user.categories.create(title: 'Category title', description: 'Category description')
-    @task = @category.tasks.create(title: 'Task title', description: 'Task description')
+    @task = @category.tasks.create(title: 'Clean', description: 'Clean bedroom')
   end
 
   before :each do
     login_as(@user, scope: :user)
   end
 
-  it '' do
+  it 'view all tasks under specific category page' do
+    visit category_path(@category)
+    expect(page).to have_content('Clean')
+  end
+
+  it 'view specific task under its own page' do
+    visit category_task_path(@category, @task)
+    expect(page).to have_content('Clean')
+    expect(page).to have_content('Clean bedroom')
   end
 
   it 'edit and saves a task' do
     visit category_path(@category.id)
 
-    click_link 'Edit Task'
+    click_link 'Edit'
 
     visit edit_category_task_path(@category, @task)
 
     fill_in 'Title', with: 'edittitletask'
     fill_in 'Description', with: 'editdescriptiontask'
 
-    click_on 'Submit Edit'
+    click_on 'Submit'
 
     visit category_path(@category.id)
 
@@ -42,6 +50,11 @@ RSpec.describe 'ViewingTasks', type: :system do
     task = @category.tasks.order('id').last
     expect(task.title).to eq('edittitletask')
     expect(task.description).to eq('editdescriptiontask')
+  end
+
+  it 'tasks can be deleted' do
+    @task.destroy
+    expect(@category.tasks.find_by(title: 'Clean')).to be_nil
   end
 
   # Clean database

@@ -1,0 +1,37 @@
+<%# Renders only if there are tasks due today %>
+<% if @tasks_others.count != 0 %>
+    <h1> Pending Tasks </h1>
+    <table>
+    <thead>
+        <tr>
+        <th>Task</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tasks_others.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= task.deadline.strftime('%B %d, %Y %H:%M %p') %></td>
+            <td><% if task.completed %>
+                    <p class="text-success">Accomplished</p>
+                <% else %>
+                    <p class="text-secondary">Pending</p>
+                <% end %>
+            </td>
+            <td><%= link_to 'See More', category_task_path(@category, task) %></td>
+            <td><%= link_to 'Edit', edit_category_task_path(@category, task), class: "tableLink" %></td>
+            <td><%= link_to 'Delete Task', category_task_path(@category, task),
+                method: :delete,
+                data: { confirm: "Are you sure?"}, 
+                class: "tableLink" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+<% end %>

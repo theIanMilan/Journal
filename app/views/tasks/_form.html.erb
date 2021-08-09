@@ -1,0 +1,37 @@
+<%= form_with model: [ @category, @task ] do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :deadline %>
+    <%= form.text_field :deadline, placeholder:'Select Date and Time...',
+                                   class: 'datepicker' %>
+  </div>
+
+  <!-- flatpickr -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    var date_time = document.querySelector('.datepicker');
+    var fp = flatpickr(date_time, {
+      altInput: true,
+      altFormat: "F j, Y H:i",
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",})
+  </script>
+
+  <div>
+    <%= form.label :completed, "Accomplished?" %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
+  </div>
+<% end %>

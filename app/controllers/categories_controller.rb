@@ -1,14 +1,21 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  
+
   def index
     @user = current_user
     @categories = @user.categories.order('created_at DESC')
   end
-  
+
   def show
     @tasks = @category.tasks
+
+    @tasks_today = @tasks.where(deadline: Date.today.all_day)
+    @tasks_others = @tasks.where.not(deadline: Date.today.all_day)
+
+    @total_tasks = @tasks.count
+    @completed_tasks = @tasks.where(completed: true).count
+    @percent_complete = @completed_tasks.to_f / @total_tasks * 100
   end
 
   def new
@@ -44,7 +51,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
 
-    flash[:notice] =  "Article successfully deleted!"
+    flash[:notice] =  "Category successfully deleted!"
     redirect_to categories_path
   end
 

@@ -1,0 +1,27 @@
+<h1>Task Title</h1>
+<div><%= @category.title %></div>
+<br>
+<h1>Notes</h1>
+<div><%= @task.description %></div>
+
+<h1>Status</h1>
+<% if @task.completed %>
+  <p class="text-success">Accomplished</p>
+<% else %>
+  <% if @task.deadline.to_date == Date.today %>
+    <p class="text-danger">Pending</p>
+  <% else %>
+    <p class="text-secondary">Pending</p>
+  <% end %>
+<% end %>
+
+<h1>Due</h1>
+ <%= @task.deadline.strftime('%B %d, %Y %H:%M %p') %>
+
+<%= link_to edit_category_task_path(@category, @task) do %>
+  <%= content_tag :button, "Edit", class: "edit-btn" %>
+<% end %>
+
+<%= link_to category_task_path(@category, @task), method: :delete, data: {confirm: "Are you sure?"} do %>
+  <%= content_tag :button, "Delete", class: "delete-btn" %>
+<% end %>
