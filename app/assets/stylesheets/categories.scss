@@ -63,12 +63,14 @@ a:link, a:hover {
 .catBody, .catHead, .catActions, .catMid {
   display: flex;
   align-items: center;
+}
+.catBody, .catHead, .catMid {
   flex-direction: column;
 }
-.catDes, .taskCount {
+.catDes, .taskCount, .catBtn:hover {
   color: var(--color-palette-celadonBlue);
 }
-.catTitle, .catBtn:hover {
+.catTitle {
   color: var(--color-palette-prussianBlue);
 }
 
@@ -89,7 +91,7 @@ a:link, a:hover {
 }
 .catActions {
   justify-content: space-between;
-  width: 38%;
+  width: 40%;
   font-size: 0.8rem;
 }
 .taskCount {
@@ -101,9 +103,6 @@ a:link, a:hover {
   background-color: var(--color-palette-prussianBlue);
   color: var(--color-palette-honeydew);
   font-weight: bold;
-}
-.catBtn:hover {
-  border-color: var(--color-palette-prussianBlue);
 }
 .catMid {
   justify-content: center;
