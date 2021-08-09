@@ -33,14 +33,14 @@ RSpec.describe 'ViewingTasks', type: :system do
   it 'edit and saves a task' do
     visit category_path(@category.id)
 
-    click_link 'Edit Task'
+    click_link 'Edit'
 
     visit edit_category_task_path(@category, @task)
 
     fill_in 'Title', with: 'edittitletask'
     fill_in 'Description', with: 'editdescriptiontask'
 
-    click_on 'Submit Edit'
+    click_on 'Submit'
 
     visit category_path(@category.id)
 

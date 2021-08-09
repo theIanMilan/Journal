@@ -6,7 +6,11 @@
 
         <%= task.description %>
 
-        <%= task.completed %>
+        <% if task.completed %>
+            <p class="text-success">Accomplished</p>
+        <% else %>
+            <p class="text-danger">Pending</p>
+        <% end %>
 
         <%= task.deadline.strftime('%B %d, %Y %H:%M %p') %>
 

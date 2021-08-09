@@ -27,6 +27,11 @@
   </script>
 
   <div>
-    <%= form.submit 'Create Task' %>
+    <%= form.label :completed, "Accomplished?" %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
   </div>
 <% end %>
