@@ -1,15 +1,15 @@
 <%# Renders only if there are tasks due today %>
 <% if @tasks_others.count != 0 %>
-    <h1> Pending Tasks </h1>
+    <div class="tableHeader"> Pending Tasks </div>
     <table>
     <thead>
         <tr>
-        <th>Task</th>
-        <th>Deadline</th>
-        <th>Status</th>
-        <th>Actions</th>
-        <th></th>
-        <th></th>
+            <th>Task</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,12 +18,12 @@
             <td><%= task.title %></td>
             <td><%= task.deadline.strftime('%B %d, %Y %H:%M %p') %></td>
             <td><% if task.completed %>
-                    <p class="text-success">Accomplished</p>
+                    <div class="text-success">Accomplished</div>
                 <% else %>
-                    <p class="text-secondary">Pending</p>
+                    <div class="text-secondary">Pending</div>
                 <% end %>
             </td>
-            <td><%= link_to 'See More', category_task_path(@category, task) %></td>
+            <td><%= link_to 'See More', category_task_path(@category, task), class: "tableLink" %></td>
             <td><%= link_to 'Edit', edit_category_task_path(@category, task), class: "tableLink" %></td>
             <td><%= link_to 'Delete Task', category_task_path(@category, task),
                 method: :delete,

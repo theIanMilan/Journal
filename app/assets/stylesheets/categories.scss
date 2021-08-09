@@ -67,7 +67,7 @@ a:link, a:hover {
 .catBody, .catHead, .catMid {
   flex-direction: column;
 }
-.catDes, .taskCount, .catBtn:hover {
+.catDes, .catBtn:hover {
   color: var(--color-palette-celadonBlue);
 }
 .catTitle {
@@ -83,7 +83,7 @@ a:link, a:hover {
   margin-top: 5px;
 }
 .catTitle {
-  width: 650px;
+  width: 800px;
   border-bottom: 1.5px solid var(--color-palette-prussianBlue);
   font-size: 3rem;
   text-align: center;
@@ -91,11 +91,9 @@ a:link, a:hover {
 }
 .catActions {
   justify-content: space-between;
-  width: 40%;
-  font-size: 0.8rem;
-}
-.taskCount {
-  font-style: italic;
+  width: 18%;
+  margin-top: 5px;
+  font-size: 0.9rem;
 }
 .catBtn {
   border: 1.4px solid var(--color-palette-prussianBlue);
@@ -107,4 +105,11 @@ a:link, a:hover {
 .catMid {
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.progressCon {
+  width: 500px;
+  margin: 5px 0px 5px 0px;
+  color: green;
+  text-align: center;
 }

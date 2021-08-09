@@ -1,3 +1,10 @@
-<h2>New Task Form</h2>
-
-<%= render "form", category: @category, task: @task %>
+<div class="newTaskCon">
+  <div class ="newTaskTitleCon">
+    <span class="titleAdd">Add</span>
+    <span class="titleNew">New</span>
+    <span class="titleTask">Task</span>
+  </div>
+  <div class ="newTaskFormCon">
+     <%= render "form", category: @category, task: @task %>
+  </div>
+</div>

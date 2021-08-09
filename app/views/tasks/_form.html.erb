@@ -1,18 +1,17 @@
-<%= form_with model: [ @category, @task ] do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :deadline %>
-    <%= form.text_field :deadline, placeholder:'Select Date and Time...',
-                                   class: 'datepicker' %>
+<%= form_with model: [ @category, @task ], html: {class: "myForm"} do |form| %>
+  
+  <div class="labelInputCon">
+    <div class="labels">
+      <div><%= form.label :title, :class => "subLabel" %>:</div>
+      <div><%= form.label :description, :class => "subLabel" %>:</div>
+      <div><%= form.label :deadline, :class => "subLabel" %>:</div>
+    </div>
+    <div class="inputs">
+      <%= form.text_field :title, placeholder:'task title...', :class => "subInput" %>
+      <%= form.text_field :description, placeholder:'description...', :class => "subInput" %>
+      <%= form.text_field :deadline, placeholder:'select date and time...',
+                                  class: 'datepicker, subInput' %>
+    </div>
   </div>
 
   <!-- flatpickr -->
@@ -26,12 +25,16 @@
       dateFormat: "Y-m-d H:i",})
   </script>
 
-  <div>
-    <%= form.label :completed, "Accomplished?" %>
+  <div class="accomplished">
+    <%= form.label :completed, "Task finished?" %>
     <%= form.check_box :completed %>
   </div>
 
   <div>
-    <%= form.submit 'Submit' %>
+    <%= form.submit 'Submit', class: 'submitBtn' %>
+  </div>
+
+  <div class="reminder">
+    Please fill in all the details required*
   </div>
 <% end %>
