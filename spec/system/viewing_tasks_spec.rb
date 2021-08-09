@@ -12,7 +12,10 @@ RSpec.describe 'ViewingTasks', type: :system do
     # Clean database and create a Category
     Category.destroy_all
     @category = @user.categories.create(title: 'Category title', description: 'Category description')
-    @task = @category.tasks.create(title: 'Clean', description: 'Clean bedroom')
+    @task = @category.tasks.create(title: 'Clean',
+                                   description: 'Clean bedroom',
+                                   deadline: 'Thu, 12 Aug 2021 13:00:00.000000000 UTC +00:00',
+                                   completed: false)
   end
 
   before :each do
@@ -22,18 +25,22 @@ RSpec.describe 'ViewingTasks', type: :system do
   it 'view all tasks under specific category page' do
     visit category_path(@category)
     expect(page).to have_content('Clean')
+    expect(page).to have_content('August 12, 2021')
+    expect(page).to have_content('Pending')
   end
 
   it 'view specific task under its own page' do
     visit category_task_path(@category, @task)
     expect(page).to have_content('Clean')
     expect(page).to have_content('Clean bedroom')
+    expect(page).to have_content('August 12, 2021')
+    expect(page).to have_content('Pending')
   end
 
   it 'edit and saves a task' do
-    visit category_path(@category.id)
+    # visit category_path(@category.id)
 
-    click_link 'Edit'
+    # click_link 'Edit'
 
     visit edit_category_task_path(@category, @task)
 

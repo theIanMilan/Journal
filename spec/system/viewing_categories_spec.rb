@@ -31,8 +31,8 @@ RSpec.describe 'ViewingCategories', type: :system do
   end
 
   it 'Edits a categorys title and displays category' do
-    visit "/categories/#{@category.id}"
-    click_link 'Edit'
+    visit "/categories/#{@category.id}/edit"
+    # first(:link, 'Edit').click
 
     fill_in 'Title', with: 'Chores Edited'
     click_on 'Update Category'
@@ -42,8 +42,8 @@ RSpec.describe 'ViewingCategories', type: :system do
   end
 
   it 'Edits a categorys description and displays category' do
-    visit category_path(@category)
-    click_link 'Edit'
+    visit edit_category_path(@category)
+    # first(:link, 'Edit').click
 
     fill_in 'Description', with: 'Listings Edited!'
     click_on 'Update Category'
