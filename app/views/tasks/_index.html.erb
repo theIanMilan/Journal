@@ -1,13 +1,22 @@
-<h1>Tasks Index</h1>
-
-<% @tasks.each do |task| %>
-    <%= task.title %>
-
-    <%= task.description %>
-
-    <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>
-
-    <%= link_to 'Delete Task' %>
-
-    <br>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Deadline</th>
+      <th>Status</th>
+      <th>Actions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td>Blank</td>
+        <td>Blank</td>
+        <td><%= link_to 'Edit', edit_category_task_path(@category, task), class: "tableLink" %></td>
+        <td><%= link_to 'Delete', edit_category_task_path(@category, task), class: "tableLink" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
