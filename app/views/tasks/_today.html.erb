@@ -1,27 +1,37 @@
 <%# Renders only if there are tasks due today %>
 <% if @tasks_today.count != 0 %>
     <h1> Tasks Due Today </h1>
-    <% @tasks_today.each do |task| %>
-        <%= task.title %>
-
-        <%= task.description %>
-
-        <% if task.completed %>
-            <p class="text-success">Accomplished</p>
-        <% else %>
-            <p class="text-danger">Pending</p>
+    <table>
+    <thead>
+        <tr>
+        <th>Task</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tasks_today.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= task.deadline.strftime('%B %d, %Y %H:%M %p') %></td>
+            <td><% if task.completed %>
+                    <p class="text-success">Accomplished</p>
+                <% else %>
+                    <p class="text-danger">Pending</p>
+                <% end %>
+            </td>
+            <td><%= link_to 'See More', category_task_path(@category, task) %></td>
+            <td><%= link_to 'Edit', edit_category_task_path(@category, task), class: "tableLink" %></td>
+            <td><%= link_to 'Delete Task', category_task_path(@category, task),
+                method: :delete,
+                data: { confirm: "Are you sure?"}, 
+                class: "tableLink" %>
+            </td>
+        </tr>
         <% end %>
-
-        <%= task.deadline.strftime('%B %d, %Y %H:%M %p') %>
-
-        <%= link_to 'See More', category_task_path(@category, task) %>
-
-        <%= link_to 'Edit Task', edit_category_task_path(@category, task) %>
-
-        <%= link_to 'Delete Task', category_task_path(@category, task),
-            method: :delete,
-            data: { confirm: "Are you sure? "} %>
-
-        <br>
-    <% end %>
+    </tbody>
+    </table>
 <% end %>

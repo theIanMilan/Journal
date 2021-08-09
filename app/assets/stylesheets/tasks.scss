@@ -1,3 +1,52 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+:root {
+  --color-palette-imperialRed: #E63946;
+  --color-palette-honeydew: #F1FAEE;
+  --color-palette-powderBlue: #A8DADC;
+  --color-palette-celadonBlue: #457B9D;
+  --color-palette-prussianBlue: #1D3557;
+}
+
+table {
+  width: 570px;
+  margin: 20px 0px 20px 0px;
+  border-collapse: collapse;   
+  text-align: center;
+  color: var( --color-palette-prussianBlue);
+}
+table thead tr {
+  background-color: var(--color-palette-imperialRed);
+  color: var(--color-palette-honeydew);
+}
+table th, table td {
+  padding: 5px;
+}
+table tbody tr:nth-of-type(even) {
+  background-color: var( --color-palette-honeydew);
+  border-bottom: none;
+}
+tbody tr:hover {
+  color: gray;
+}
+.tableLink {
+  color: var(--color-palette-prussianBlue);
+}
+.tableLink:hover {
+  color: gray;
+}
+.addTask {
+  width: 88px;
+  border: 1.4px solid var(--color-palette-prussianBlue);
+  border-radius: 5px;
+  background-color:var(--color-palette-prussianBlue);
+  color: var( --color-palette-honeydew);
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.addTask:hover {
+  color: var(--color-palette-celadonBlue);
+}
