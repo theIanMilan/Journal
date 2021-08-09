@@ -11,7 +11,7 @@
 }
 
 table {
-  width: 570px;
+  width: 700px;
   margin: 20px 0px 20px 0px;
   border-collapse: collapse;   
   text-align: center;
@@ -44,9 +44,124 @@ tbody tr:hover {
   background-color:var(--color-palette-prussianBlue);
   color: var( --color-palette-honeydew);
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: center;
 }
 .addTask:hover {
   color: var(--color-palette-celadonBlue);
+}
+
+.tableHeader {
+  margin-top: 20px;
+  color: var(--color-palette-prussianBlue);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// new task form
+.newTaskCon, .newTaskTitleCon {
+  display: flex;
+  justify-content: center;
+}
+
+.newTaskCon {
+  align-items: center;
+  width: 100vw;
+}
+.newTaskTitleCon {
+  align-items: flex-start;
+  flex-direction: column;
+  height: 400px;
+  width: 28%;
+  text-transform: uppercase;
+}
+.titleAdd {
+  font-size: 3rem;
+  color: var(--color-palette-imperialRed);
+}
+.titleNew {
+  font-size: 5rem;
+  margin-left: 70px;
+  color: var(--color-palette-prussianBlue);
+}
+.titleTask {
+  font-size: 4rem;
+  color: var(--color-palette-celadonBlue);
+}
+.newTaskFormCon {
+  height: 400px;
+  width: 30%;
+}
+
+// form
+.myForm, .labelInputCon, .labels, .inputs {
+  display: flex;
+  justify-content: center;
+}
+.myForm, .labelInputCon {
+  align-self: center;
+}
+.labels, .inputs {
+  align-items: flex-start;
+}
+.myForm, .labels, .inputs {
+  flex-direction: column;
+}
+.myForm, .labels, .inputs {
+  height: 100%;
+}
+.labelInputCon, .myForm, .subInput {
+  width: 100%;
+}
+.subLabel, .subInput {
+  margin-bottom: 15px;
+}
+.subInput, .submitBtn {
+  border: 1.4px solid var(--color-palette-prussianBlue);
+}
+.subInput, .submitBtn {
+  border-radius: 5px;
+}
+.subLabel, .accomplished, .submitBtn {
+  color: var(--color-palette-prussianBlue);
+}
+.subInput, .subInput::placeholder, .submitBtn:hover {
+  color: var(--color-palette-celadonBlue);
+}
+.subInput, .subInput::placeholder {
+  font-size: 0.8rem;
+}
+
+.labelInputCon {
+  height: 40%;
+}
+.labels {
+  width: 25%;
+}
+.inputs {
+  width: 75%;
+}
+.subInput {
+  height: 30px;
+  overflow: hidden;
+}
+.subInput::placeholder {
+  padding: 3px;
+}
+.accomplished {
+  margin: 5px 0px 5px 0px;
+}
+.reminder {
+  color: var(--color-palette-imperialRed);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+.submitBtn {
+  width: 60px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  font-size: 0.9rem;
+  text-align: center;
 }

@@ -3,29 +3,23 @@
     <h1 class="catTitle"><%= @category.title %></h1>
     <div class="catDes"><%= @category.description %></div>
     <div class="catActions">
-      <div class="taskCount">(Pending Tasks: <%= @category.tasks.count %>)</div>
-      <div>
         <%= link_to edit_category_path(@category) do %>
           <%= content_tag :button, "Edit &#9998;".html_safe, class: "catBtn" %>
         <% end %>
         <%= link_to category_path, method: :delete, data: {confirm: "Are you sure?"} do %>
           <%= content_tag :button, "Delete &#10008".html_safe, class: "catBtn" %>
         <% end %>
-      </div>
     </div>
-
   </div>
   <div class="catMid">
     <div><%= render "tasks/today" %></div>
     <div><%= render "tasks/others" %></div>
     <%= link_to 'Add Task +', new_category_task_path(@category), class: "addTask" %>
   </div>
-</div>
-
-
-
-<h1>Progress:</h1>
-<p><%= @completed_tasks %> of <%= @total_tasks %> tasks accomplished</p>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: <%= @percent_complete %>%;" aria-valuenow="<%= @percent_complete %>" aria-valuemin="0" aria-valuemax="100"><%= @percent_complete %>%</div>
+  <div class="progressCon">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: <%= @percent_complete %>%;" aria-valuenow="<%= @percent_complete %>" aria-valuemin="0" aria-valuemax="100"><%= @percent_complete %>%</div>
+    </div>
+    <div class="progressDes"><%= @completed_tasks %> of <%= @total_tasks %> tasks accomplished!</div>
+  </div>
 </div>
