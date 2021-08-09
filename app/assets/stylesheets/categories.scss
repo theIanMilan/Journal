@@ -1,3 +1,56 @@
-// Place all the styles related to the Categories controller here.
+                                                                                                                                                                                                                                                                                                                                                                                                                                          // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// variables
+:root {
+  --color-palette-imperialRed: #E63946;
+  --color-palette-honeydew: #F1FAEE;
+  --color-palette-powderBlue: #A8DADC;
+  --color-palette-celadonBlue: #457B9D;
+  --color-palette-prussianBlue: #1D3557;
+}
+
+.myCol, .myCard, .cardHead, .cardBody, .cardFooter {
+  display: flex;
+  align-items: center;
+}
+.myCol, .myCard, .cardHead, .cardFooter {
+  justify-content: center;
+}
+.myCard, .cardHead, .cardBody, .cardFooter {
+  width: 100%;
+}
+.cardFooter, a:link, a:hover {
+  color: var(--color-palette-honeydew);
+}
+
+.myCol {
+  height: 200px;
+  padding: 5px;
+}
+.myCard {
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid var(--color-palette-honeydew);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cardHead {
+  height: 30%;
+  background-color: var(--color-palette-prussianBlue);
+  font-size: 1.5rem;
+}
+.cardBody {
+  justify-content: flex-start;
+  height: 50%;
+  padding: 10px;
+  font-size: 0.8rem;
+}
+.cardFooter {
+  height: 20%;
+  background-color: var(--color-palette-imperialRed);
+}
+a:link, a:hover {
+  text-decoration: none;
+}

@@ -1,18 +1,13 @@
 <div class="container">
   <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 align-items-stretch g-4 py-5">
-    <%# BUILD CARDS %>
     <% @categories.each do |category| %>
-    <div class="col">
-      <div class="card border border-success shadow-0 mb-3">
-        <div class="card-header bg-transparent border-success"><h3 class="card-title"> <%= link_to category.title, category %> </h3></div>
-        <div class="card-body text-success">
-          <p class="card-text">
-            <%= category.description %>
-          </p>
+      <div class="myCol">
+        <div class="myCard">
+          <div class="cardHead"><%= link_to category.title, category %></div>
+          <div class="cardBody"><%= category.description %></div>
+          <div class="cardFooter">&#9776; | &#9998; | &#10008;</div>
         </div>
-        <div class="card-footer bg-transparent border-success">EDIT | DELETE</div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
