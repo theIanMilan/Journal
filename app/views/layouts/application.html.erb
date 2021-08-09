@@ -28,8 +28,14 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <%= render "layouts/header" %>
-    <%= yield %>
-    <%= render "layouts/footer" %>
+    <div id="page-container">
+
+      <div id="content-wrap">
+      <%= render "layouts/header" %>
+      <section class="content"><%= yield %></section>
+      </div>
+
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

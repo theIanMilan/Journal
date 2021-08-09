@@ -5,7 +5,7 @@
     <div><a class="link" href="#">About</a></div>
     <div><a class="link" href="#">Membership</a></div>
   </div>
-  <div>
+
     <% if user_signed_in? %>
       <div class="signedInCon">
         <div>Logged in as <strong><%= current_user.email %></strong></div>
@@ -20,5 +20,5 @@
         <%= link_to "<button class='button'>Sign-up</button>".html_safe, new_user_registration_path %></button>
       </div>
     <% end %>
-  </div>
+
 </header>
