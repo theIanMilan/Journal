@@ -20,3 +20,7 @@ require("stylesheets/application.scss")
 
 // Flatpickr datepicker
 const flatpickr = require("flatpickr");
+
+// Trix Richtext Editor
+require("trix")
+require("@rails/actiontext")
