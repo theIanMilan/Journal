@@ -4,11 +4,11 @@ class CategoriesController < ApplicationController
 
   def index
     @user = current_user
-    @categories = @user.categories.order('created_at DESC')
+    @categories = @user.categories.all.with_rich_text_description.order('created_at DESC')
   end
 
   def show
-    @tasks = @category.tasks
+    @tasks = @category.tasks.all.with_rich_text_description.order('deadline ASC')
 
     @tasks_today = @tasks.where(deadline: Date.today.all_day)
     @tasks_others = @tasks.where.not(deadline: Date.today.all_day)
