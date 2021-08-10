@@ -5,17 +5,12 @@ RSpec.describe 'ViewingCategories', type: :system do
     driven_by(:rack_test)
   end
 
-  before :all do
+  before :each do
     # Devise gem rspec helper
     @user = User.create(:email => 'test99@example.com', :password => 'f4k3p455w0rd')
-
-    # Clean database and create a Category
-    Category.destroy_all
-    @category = @user.categories.create(title: 'Chores', description: 'Household activities to do')
-  end
-
-  before :each do 
     login_as(@user, :scope => :user)
+
+    @category = @user.categories.create(title: 'Chores', description: 'Household activities to do')    
   end
 
   it 'View all categories includes newly created data at index.html.erb' do
@@ -55,10 +50,5 @@ RSpec.describe 'ViewingCategories', type: :system do
   it 'Category can be deleted' do
     @category.destroy
     expect(Category.find_by(title: 'Chores')).to be_nil
-  end
-
-  # Clean database
-  after :all do
-    User.destroy_all
   end
 end

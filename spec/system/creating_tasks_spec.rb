@@ -5,17 +5,12 @@ RSpec.describe 'CreatingTasks', type: :system do
     driven_by(:rack_test)
   end
 
-  before :all do
+  before :each do
     # Devise gem rspec helper
     @user = User.create(email: 'test1234@example.com', password: 'f4k3p455w0rd')
-
-    # Clean database and create a Category
-    Category.destroy_all
-    @category = @user.categories.create(title: 'Category title', description: 'Category description')
-  end
-
-  before :each do
     login_as(@user, scope: :user)
+
+    @category = @user.categories.create(title: 'Category title', description: 'Category description')
   end
 
   it 'saves and displays a task' do

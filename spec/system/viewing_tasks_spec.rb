@@ -5,21 +5,16 @@ RSpec.describe 'ViewingTasks', type: :system do
     driven_by(:rack_test)
   end
 
-  before :all do
+  before :each do
     # Devise gem rspec helper
     @user = User.create(email: 'askIan@example.com', password: 'f4k3p455w0rd')
+    login_as(@user, scope: :user)
 
-    # Clean database and create a Category
-    Category.destroy_all
     @category = @user.categories.create(title: 'Category title', description: 'Category description')
     @task = @category.tasks.create(title: 'Clean',
                                    description: 'Clean bedroom',
                                    deadline: 'Thu, 12 Aug 2021 13:00:00.000000000 UTC +00:00',
                                    completed: false)
-  end
-
-  before :each do
-    login_as(@user, scope: :user)
   end
 
   it 'view all tasks under specific category page' do
@@ -65,10 +60,5 @@ RSpec.describe 'ViewingTasks', type: :system do
   it 'tasks can be deleted' do
     @task.destroy
     expect(@category.tasks.find_by(title: 'Clean')).to be_nil
-  end
-
-  # Clean database
-  after :all do
-    User.destroy_all
   end
 end
