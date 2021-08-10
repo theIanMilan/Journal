@@ -20,4 +20,4 @@ require("stylesheets/application.scss")
 
 // Flatpickr datepicker
 const flatpickr = require("flatpickr")
-import 'flatpickr/dist/flatpickr.css'
+import 'flatpickr/dist/themes/material_red.css'
