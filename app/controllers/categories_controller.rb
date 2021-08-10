@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
 
     @total_tasks = @tasks.count
     @completed_tasks = @tasks.where(completed: true).count
-    @percent_complete = @completed_tasks.to_f / @total_tasks * 100
+    @percent_complete = (@completed_tasks.to_f / @total_tasks * 100).round(2)
   end
 
   def new
