@@ -8,7 +8,8 @@
     </div>
     <div class="inputs">
       <%= form.text_field :title, placeholder:'task title...', :class => "subInput" %>
-      <%= form.text_field :description, placeholder:'description...', :class => "subInput" %>
+      <%= form.text_area :description, placeholder:'description...', :class => "subInput",
+                        size: '50x3' %>
       <%= form.text_field :deadline, placeholder:'select date and time...',
                                   class: 'datepicker, subInput' %>
     </div>
