@@ -19,4 +19,5 @@ import 'bootstrap/dist/css/bootstrap'
 require("stylesheets/application.scss")
 
 // Flatpickr datepicker
-const flatpickr = require("flatpickr");
+const flatpickr = require("flatpickr")
+import 'flatpickr/dist/flatpickr.css'
