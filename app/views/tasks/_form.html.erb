@@ -10,20 +10,11 @@
       <%= form.text_field :title, placeholder:'task title...', :class => "subInput" %>
       <%= form.text_field :description, placeholder:'description...', :class => "subInput" %>
       <%= form.text_field :deadline, placeholder:'select date and time...',
-                                  class: 'datepicker, subInput' %>
+                          class: 'datepicker subInput' %>
     </div>
   </div>
 
-  <!-- flatpickr -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script>
-    var date_time = document.querySelector('.datepicker');
-    var fp = flatpickr(date_time, {
-      altInput: true,
-      altFormat: "F j, Y H:i",
-      enableTime: true,
-      dateFormat: "Y-m-d H:i",})
-  </script>
+  <%= javascript_pack_tag 'flatpickr' %>
 
   <div class="accomplished">
     <%= form.label :completed, "Task finished?" %>
