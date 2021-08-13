@@ -23,8 +23,8 @@ Our Journal is a project made by [Ian Mandap](https://github.com/theIanMilan) an
 * CSS and SCSS
 * Bootstrap5
 * PostgresQL
+* Devise gem for authentication
 * [flatpickr](https://github.com/flatpickr/flatpickr) for datetime picker
 * [Trix](https://github.com/basecamp/trix) for rich-text enabled form fields
-<!-- * [Trix](https://github.com/basecamp/trix)
-* `toastr` for notifications
+<!-- * `toastr` for notifications
 * `image-processing` gem -->

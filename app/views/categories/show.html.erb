@@ -16,10 +16,13 @@
     <div><%= render "tasks/others" %></div>
     <%= link_to 'Add Task +', new_category_task_path(@category), class: "addTask" %>
   </div>
-  <div class="progressCon">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: <%= @percent_complete %>%;" aria-valuenow="<%= @percent_complete %>" aria-valuemin="0" aria-valuemax="100"><%= @percent_complete %>%</div>
+
+  <% if @tasks.count != 0 %>
+    <div class="progressCon">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: <%= @percent_complete %>%;" aria-valuenow="<%= @percent_complete %>" aria-valuemin="0" aria-valuemax="100"><%= @percent_complete %>%</div>
+      </div>
+      <div class="progressDes"><%= @completed_tasks %> of <%= @total_tasks %> tasks accomplished!</div>
     </div>
-    <div class="progressDes"><%= @completed_tasks %> of <%= @total_tasks %> tasks accomplished!</div>
-  </div>
+  <% end %>
 </div>

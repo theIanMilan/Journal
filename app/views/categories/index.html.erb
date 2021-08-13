@@ -1,3 +1,11 @@
+<% if @categories.count.zero? %>
+  <p>Add new Category for your tasks to start planning!</p>
+<% end %>
+
+<%= link_to new_category_path(@category) do %>
+  <%= content_tag :button, "Add Category +", class: "catBtn" %>
+<% end %>
+
 <div class="container">
   <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2 align-items-stretch g-4 py-5">
     <% @categories.each do |category| %>
