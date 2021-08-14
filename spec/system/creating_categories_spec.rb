@@ -5,7 +5,7 @@ RSpec.describe "CreatingCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  before :all do
+  before :each do
     # Devise gem rspec helper
     user = User.create(:email => 'test123@example.com', :password => 'f4k3p455w0rd')
     login_as(user, :scope => :user)
@@ -27,10 +27,5 @@ RSpec.describe "CreatingCategories", type: :system do
     category = Category.order("id").last
     expect(category.title).to eq('Chores')
     expect(category.description).to eq('Listing of all household chores')
-  end
-
-  # Clean database
-  after :all do
-    User.destroy_all
   end
 end

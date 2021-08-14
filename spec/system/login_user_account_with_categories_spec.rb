@@ -5,7 +5,7 @@ RSpec.describe "LoginUserAccountWithCategories", type: :system do
     driven_by(:rack_test)
   end
 
-  before :all do
+  before :each do
     # Devise gem rspec helper
     @user = User.create(:email => 'test11@example.com', :password => 'f4k3p455w0rd')
     @user2 = User.create(:email => 'test12@example.com', :password => 'f4k3p455w0rd')
