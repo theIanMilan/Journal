@@ -10,13 +10,13 @@ The goal in building this app was to learn about Test Driven Development (TDD) a
 ## Screenshots
 
 <p float = 'left'>
-    <img src="app/assets/images/demo/journal-home.png" alt="Journal Homepage" width="500" height="300">
-    <img src="app/assets/images/demo/journal-category.png" alt="Journal Categories" width="500" height="300">
-    <img src="app/assets/images/demo/journal-task.png"  alt="Journal Tasks" width="500" height="300">
+    <img src="app/assets/images/demo/journal-home.png" alt="Journal Homepage" width="1000" height="500">
+    <img src="app/assets/images/demo/journal-category.png" alt="Journal Categories" width="1000" height="382">
+    <img src="app/assets/images/demo/journal-task.png"  alt="Journal Tasks" width="1000" height="500">
 </p>
 
 ## App Architecture/ ERD:
-<img src="app/assets/images/demo/Journal ERD.jpg" alt="Entity Relationship Diagram" width="500" height="300">
+<img src="app/assets/images/demo/Journal ERD.jpg" alt="Entity Relationship Diagram" width="570" height="141">
 
 ## Technologies
 
