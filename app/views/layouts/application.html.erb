@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Journal</title>
+    <title>Our Journal</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= render 'application/favicon' %>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +20,15 @@
 
   <body>
     <%# Flash %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <% unless flash.empty? %>
+      <div id='flash'>
+        <script type="text/javascript">
+            <% flash.each do |f| %>
+              <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+              toastr['<%= type %>']('<%= f[1] %>', '', { closeButton: true, progressBar: true, newestOnTop: false, positionClass: 'toast-bottom-right' });    
+            <% end %>
+        </script>
+      </div>
     <% end %>
 
     <div id="page-container">

@@ -30,7 +30,8 @@ tbody tr:hover {
   color: gray;
 }
 .addTask {
-  width: 88px;
+  width: fit-content;
+  padding: 4px 8px;
   border: 1.4px solid var(--color-palette-prussianBlue);
   border-radius: 5px;
   background-color:var(--color-palette-prussianBlue);
@@ -66,7 +67,7 @@ tbody tr:hover {
   align-items: flex-start;
   flex-direction: column;
   height: 400px;
-  width: 28%;
+  width: 24%;
   text-transform: uppercase;
 }
 .titleAdd {
@@ -83,8 +84,8 @@ tbody tr:hover {
   color: var(--color-palette-celadonBlue);
 }
 .newTaskFormCon {
-  height: 400px;
-  width: 30%;
+  // height: 400px;
+  width: 60%;
 }
 
 // form
@@ -112,9 +113,9 @@ tbody tr:hover {
 }
 .subInput, .submitBtn {
   border: 1.4px solid var(--color-palette-prussianBlue);
-}
-.subInput, .submitBtn {
-  border-radius: 5px;
+  padding: 0.4em 0.6em;
+  border: 1px solid #bbb;
+  border-radius: 3px;
 }
 .subLabel, .accomplished, .submitBtn {
   color: var(--color-palette-prussianBlue);
@@ -135,6 +136,7 @@ tbody tr:hover {
 .inputs {
   width: 75%;
 }
+
 .subInput {
   height: 30px;
   overflow: hidden;
@@ -151,7 +153,7 @@ tbody tr:hover {
   font-size: 0.8rem;
 }
 .submitBtn {
-  width: 60px;
+  width: fit-content;
   margin-bottom: 5px;
   background-color: transparent;
   font-size: 0.9rem;

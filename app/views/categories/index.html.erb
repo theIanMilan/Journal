@@ -1,9 +1,9 @@
 <% if @categories.count.zero? %>
-  <p>Add new Category for your tasks to start planning!</p>
+  <p class="intro-par">Add a new Category for your tasks to start planning!</p>
 <% end %>
 
 <%= link_to new_category_path(@category) do %>
-  <%= content_tag :button, "Add Category +", class: "catBtn" %>
+  <%= content_tag :button, "Add Category +", class: "catBtn create-btn" %>
 <% end %>
 
 <div class="container">
@@ -13,7 +13,15 @@
         <div class="myCard">
           <div class="cardHead"><%= link_to category.title, category , class: "cardHeadClr" %></div>
           <div class="cardBody"><%= category.description %></div>
-          <div class="cardFooter">&#9776; | &#9998; | &#10008;</div>
+          <div class="cardFooter">
+            <%= link_to ' ≡ ', category_path(category), class: 'card-icon', title: 'See More' %>
+            | 
+            <%= link_to ' ✎ ', edit_category_path(category), class: 'card-icon', title: 'Edit' %> 
+            |
+            <%= link_to ' ✘ ', category_path(category), method: :delete, 
+                data: {confirm: "Are you sure you want to delete this Category?"}, 
+                class: 'card-icon', title: 'Delete Category' %> 
+          </div>
         </div>
       </div>
     <% end %>

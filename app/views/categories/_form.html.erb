@@ -1,15 +1,14 @@
 <%= form_with model: @category do |f| %>
   <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :title, class: 'cat-label' %>
+    <br>
+    <%= f.text_field :title, class: 'cat-input' %>
   </div>
-
   <div>
-    <%= f.label :description %>
-    <%= f.rich_text_area :description, size: '50x5' %>
+    <%= f.label :description, class: 'cat-label' %>
+    <%= f.rich_text_area :description %>
   </div>
-
   <div>
-    <%= f.submit class: "edit-create-btn" %>
+    <%= f.submit class: "catBtn edit-create-btn" %>
   </div>
 <% end %>

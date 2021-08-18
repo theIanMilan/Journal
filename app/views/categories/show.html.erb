@@ -6,7 +6,7 @@
         <%= link_to edit_category_path(@category) do %>
           <%= content_tag :button, "Edit &#9998;".html_safe, class: "catBtn" %>
         <% end %>
-        <%= link_to category_path, method: :delete, data: {confirm: "Are you sure?"} do %>
+        <%= link_to category_path, method: :delete, data: {confirm: "Are you sure you want to delete this Category?"} do %>
           <%= content_tag :button, "Delete &#10008".html_safe, class: "catBtn" %>
         <% end %>
     </div>
