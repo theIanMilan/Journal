@@ -18,11 +18,15 @@
 
   <body>
     <%# Flash %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <% unless flash.empty? %>
+      <div id='flash'>
+        <script type="text/javascript">
+            <% flash.each do |f| %>
+              <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+              toastr['<%= type %>']('<%= f[1] %>', '', { closeButton: true, progressBar: true, newestOnTop: false, positionClass: 'toast-bottom-right' });    
+            <% end %>
+        </script>
+      </div>
     <% end %>
 
     <div id="page-container">

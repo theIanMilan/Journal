@@ -13,10 +13,12 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+// Toastr
+global.toastr = require("toastr")
+
 // Bootstrap
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
-require("stylesheets/application.scss")
 
 // Flatpickr datepicker
 const flatpickr = require("flatpickr")
@@ -25,3 +27,6 @@ import 'flatpickr/dist/themes/material_red.css'
 // Trix Richtext Editor
 require("trix")
 require("@rails/actiontext")
+
+// App Stylesheets
+import "../stylesheets/application"
