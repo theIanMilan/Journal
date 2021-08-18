@@ -49,6 +49,7 @@ group :development do
   # Live auto-reload
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
+  gem 'rails_real_favicon'
 end
 
 group :test do
