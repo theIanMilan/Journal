@@ -20,6 +20,13 @@
   align-items: center;
 }
 
+.intro-par {
+  font-size: 1.5rem;
+  margin-top: 2.5vh;
+  margin-left: 2.5vw;
+  margin-bottom: -1vh;
+}
+
 // categories show
 .myCol, .myCard, .cardHead, .cardBody, .cardFooter {
   display: flex;
@@ -52,15 +59,16 @@
   overflow: hidden;
 }
 .cardHead {
-  height: 30%;
+  min-height: 2.25rem;
   background-color: var(--color-palette-prussianBlue);
   font-size: 1.5rem;
 }
 .cardBody {
   justify-content: flex-start;
   height: 50%;
-  padding: 10px;
+  padding: 1rem 0.75rem;
   font-size: 0.8rem;
+  margin: 1rem 0;
 }
 .cardFooter {
   height: 20%;
@@ -116,7 +124,7 @@ a.card-icon {
 .catActions {
   justify-content: space-between;
   width: 18%;
-  margin-top: 5px;
+  margin-top: 1.5rem;
   font-size: 0.9rem;
 }
 .catBtn {
