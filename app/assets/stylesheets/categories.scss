@@ -33,7 +33,7 @@
 .myCard {
   flex-direction: column;
   height: 100%;
-  border: 2px solid var(--color-palette-honeydew);
+  border: 1px solid var(--color-palette-celadonBlue);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -57,6 +57,16 @@ a:link, a:hover {
 }
 .cardHeadClr:hover {
   color: var(--color-palette-imperialRed);
+}
+
+.card-icon {
+  font-size: 1.3rem; 
+  padding: 0 0.5rem;
+}
+
+a.card-icon {
+  text-decoration: none;
+  color: white;
 }
 
 // category show
