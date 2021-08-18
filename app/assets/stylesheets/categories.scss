@@ -11,6 +11,15 @@
   --color-palette-prussianBlue: #1D3557;
 }
 
+.cat-form-container {
+  margin-top: 3vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 // categories show
 .myCol, .myCard, .cardHead, .cardBody, .cardFooter {
   display: flex;
@@ -24,6 +33,11 @@
 }
 .cardFooter, .cardHeadClr {
   color: var(--color-palette-honeydew);
+}
+
+.create-btn {
+  margin-top: 2.5vh;
+  margin-left: 2.5vw;
 }
 
 .myCol {
@@ -111,9 +125,11 @@ a.card-icon {
   background-color: var(--color-palette-prussianBlue);
   color: var(--color-palette-honeydew);
   font-weight: bold;
+  padding: 2px 4px;
 }
 .catMid {
   justify-content: center;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -122,4 +138,22 @@ a.card-icon {
   margin: 5px 0px 5px 0px;
   color: green;
   text-align: center;
+}
+
+// Form
+.edit-create-btn {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.cat-label {
+  font-weight: bold;
+}
+
+.cat-input {
+  width: 100%;
+  padding: 0.4em 0.6em;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin-bottom: 2vh;
 }
