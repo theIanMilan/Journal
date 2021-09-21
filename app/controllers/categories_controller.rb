@@ -10,8 +10,8 @@ class CategoriesController < ApplicationController
   def show
     @tasks = @category.tasks.all.with_rich_text_description.order('deadline ASC')
 
-    @tasks_today = @tasks.where(deadline: Date.today.all_day)
-    @tasks_others = @tasks.where.not(deadline: Date.today.all_day)
+    @tasks_past_due = @tasks.where('deadline <= ?', Date.tomorrow)
+    @tasks_others = @tasks.where('deadline > ?', Date.tomorrow)
 
     @total_tasks = @tasks.count
     @completed_tasks = @tasks.where(completed: true).count
@@ -26,12 +26,12 @@ class CategoriesController < ApplicationController
     @user = current_user
     @category = @user.categories.build(category_params)
     @category.save!
-    
+
     if @category.valid?
-      flash[:notice] = "Category successfully created!"
+      flash[:notice] = 'Category successfully created!'
       redirect_to categories_path
     else
-      flash[:alert] = "Something went wrong..."
+      flash[:alert] = 'Something went wrong...'
       render :new
     end
   end
@@ -39,23 +39,24 @@ class CategoriesController < ApplicationController
   def edit; end
 
   def update
-   if @category.update(category_params)
-     flash[:notice] = "Category successfully edited!"
-     redirect_to categories_path
-   else
-     flash[:alert] = "Something went wrong..."
-     render :new
-   end
+    if @category.update(category_params)
+      flash[:notice] = 'Category successfully edited!'
+      redirect_to categories_path
+    else
+      flash[:alert] = 'Something went wrong...'
+      render :new
+    end
   end
 
   def destroy
     @category.destroy
 
-    flash[:notice] =  "Category successfully deleted!"
+    flash[:notice] = 'Category successfully deleted!'
     redirect_to categories_path
   end
 
   private
+
   def set_category
     @category = Category.find(params[:id])
   end

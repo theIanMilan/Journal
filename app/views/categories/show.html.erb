@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="catMid">
-    <div><%= render "tasks/today" %></div>
+    <div><%= render "tasks/past_due" %></div>
     <div><%= render "tasks/others" %></div>
     <%= link_to 'Add Task +', new_category_task_path(@category), class: "addTask" %>
   </div>
